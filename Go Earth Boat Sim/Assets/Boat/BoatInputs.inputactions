@@ -2,7 +2,7 @@
     "name": "BoatInputs",
     "maps": [
         {
-            "name": "BoatControls",
+            "name": "CombinedEngineControls",
             "id": "8d5ee7f2-6fd2-4aa4-81a6-72b0283ba304",
             "actions": [
                 {
@@ -70,23 +70,7 @@
                     "interactions": "Press(behavior=1)"
                 },
                 {
-                    "name": "ChangeCam",
-                    "type": "Button",
-                    "id": "02506bed-a711-4c73-9c08-c3f997aea0cc",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "CameraZoom",
-                    "type": "Value",
-                    "id": "200bbae1-66a2-433c-94f9-ba084459bbd2",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Handbrake",
+                    "name": "Stop",
                     "type": "Button",
                     "id": "017bfb89-4e63-42b1-9dc1-34c3631bbdce",
                     "expectedControlType": "Button",
@@ -97,6 +81,14 @@
                     "name": "ChangeControlType",
                     "type": "Button",
                     "id": "e80ea82a-b4bf-404e-b028-55b3e1b338e8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "InduvidualControlsSwitch",
+                    "type": "Button",
+                    "id": "a24f350d-41c9-450e-baaa-b3d3dc79839f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -132,6 +124,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
+                    "action": "EnginePowerUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "10a68f61-e154-448a-a26b-ffcbb954f150",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
                     "action": "EnginePowerUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -237,28 +240,6 @@
                 },
                 {
                     "name": "",
-                    "id": "36be46ff-0e3f-4883-aca8-f327aee526e6",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraZoom",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "78a0820f-5ff0-4fbf-ac15-1d16429aa846",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeCam",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0f4636dd-2c84-44e3-81da-887739a54b65",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -292,17 +273,6 @@
                 },
                 {
                     "name": "",
-                    "id": "bebe814b-740a-4efb-98cb-6a6f56d1101a",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "RotateLeftStop",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "210a6f45-f3b0-4892-8165-7bd55fecc5cf",
                     "path": "<Keyboard>/d",
                     "interactions": "",
@@ -319,7 +289,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Handbrake",
+                    "action": "Stop",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -331,6 +301,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChangeControlType",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d548f1f5-3b9c-4cf3-bf52-6d1819613579",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateLeftStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce9b07ac-2a2e-4e2a-bf6b-edefbe0660a0",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InduvidualControlsSwitch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -847,14 +839,6 @@
             "id": "502cdd64-dbd8-46f1-8dea-8a206372df35",
             "actions": [
                 {
-                    "name": "ChangeControlTypes",
-                    "type": "Button",
-                    "id": "68f69d67-a4a1-414e-8845-f1a87d8893b5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Forwards",
                     "type": "Button",
                     "id": "67fded94-4abf-47e9-b0f9-cee73aa44a84",
@@ -917,20 +901,17 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "ChangeControlTypes",
+                    "type": "Button",
+                    "id": "5ca6acc5-5ef9-4f69-8399-a1e5b445c12c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "0712bcc3-e384-4cfe-8d3b-776c420c5da9",
-                    "path": "<Keyboard>/b",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeControlTypes",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "49bc103e-98aa-48c9-adf9-5d7d765be5f5",
@@ -1018,18 +999,224 @@
                     "action": "Rightways",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ede69635-c0e6-40fc-8618-9615d2f43574",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeControlTypes",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "Mouse",
-            "id": "02627140-dc9b-478e-9200-4dc2fd48bb20",
+            "name": "InduvidualEngineControls",
+            "id": "ffcc0f40-3f5c-48a2-8f46-5a2b223f7707",
             "actions": [
                 {
-                    "name": "MouseLook",
+                    "name": "LeftForwards",
+                    "type": "Button",
+                    "id": "f3e0aefb-4ae2-4608-83fc-a64e95dc2de7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "LeftForwardsStop",
+                    "type": "Button",
+                    "id": "2ea503a3-ab10-457a-ad67-f9cd9c1555f3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "LeftBackwards",
+                    "type": "Button",
+                    "id": "c778f33d-dde2-4a1f-8044-2325a1ca76e7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "LeftBackwardsStop",
+                    "type": "Button",
+                    "id": "ea9a14d7-6529-4bc5-baf9-5f3e2cb5cd09",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "RightForwards",
+                    "type": "Button",
+                    "id": "d345575c-59c2-4eda-80c7-9665ba5df4c2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "RightForwardsStop",
+                    "type": "Button",
+                    "id": "2cebdee6-031a-496a-8be8-00c76892e5d6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "RightBackwards",
+                    "type": "Button",
+                    "id": "c1d059cc-b8dd-464b-afe7-3dee5870111b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "RightBackwardsStop",
+                    "type": "Button",
+                    "id": "017c5639-b2be-468d-adbb-83756dd77a40",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                },
+                {
+                    "name": "CombinedControlsSwitch",
+                    "type": "Button",
+                    "id": "4883701c-cc3c-4cc3-b610-9263218bd547",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b421b155-b3ec-4e48-aade-99d1bc7e86e6",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftForwards",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ff3753d0-c990-4771-8ee7-c80494a608f3",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftForwardsStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60929a30-bb89-4a7d-a489-847d696c85b6",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftBackwards",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "168ae1ef-2cd0-4bc2-bbeb-0f0c0f4e18e0",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftBackwardsStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1178e19f-a9b4-4183-8a24-07ec3f2ed4d2",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightBackwardsStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d3cd40e-ad2c-4652-ae86-4fed081be784",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CombinedControlsSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "deafdf5b-6dad-4aef-9c71-d451ea590ffe",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightForwards",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "408554f2-673e-41c9-9f3d-04ca26b9085f",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightForwardsStop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "727cd145-3bc3-4e34-a2fe-a219997179c3",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightBackwards",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Camera",
+            "id": "baf70b7b-f2a1-452e-b849-76ea89c65980",
+            "actions": [
+                {
+                    "name": "Mouse",
                     "type": "PassThrough",
-                    "id": "6036e596-1e76-4e6d-99df-bd77fe539e1a",
+                    "id": "71f7ceae-2f74-497f-be53-90d164fe4e16",
                     "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ChangeCam",
+                    "type": "Button",
+                    "id": "5779c3d8-2473-48c3-8230-ad9ea94102e8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "CameraZoom",
+                    "type": "Value",
+                    "id": "e94267be-d09e-4f3e-a208-5667f5404f1f",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
                 }
@@ -1037,12 +1224,34 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "85e39b8e-6f16-40dd-a178-f9516c3f8824",
+                    "id": "d2bfe504-8512-436c-9b1c-ad0052470832",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseLook",
+                    "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c92273f8-e9dd-4c2f-ac5d-a093f2670712",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeCam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87738f2a-a254-4131-a82b-524abb492639",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraZoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -25,8 +25,8 @@ public class HUDController : MonoBehaviour
     private void UpdateThrottle()
     {
         //this wont work when we have more than one boat but handle that when you get to it 
-        throtlle1.value = boat.enginePowerValue;
-        throtlle1.value = boat.enginePowerValue;
+        throtlle1.value = boat.combinedEnginePowerValue;
+        throtlle1.value = boat.combinedEnginePowerValue;
     }
 
     private void UpdateRudder()

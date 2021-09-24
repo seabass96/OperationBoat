@@ -22,18 +22,18 @@ public class cameraMovment : MonoBehaviour
     {
         orbits = CinemMachine.GetComponent<CinemachineFreeLook>().m_Orbits;
         inputs = new BoatInputs();
-        inputs.BoatControls.CameraZoom.performed += Zoom;
-        inputs.BoatControls.ChangeCam.performed += ChangeCam;
+        inputs.CombinedEngineControls.CameraZoom.performed += Zoom;
+        inputs.CombinedEngineControls.ChangeCam.performed += ChangeCam;
     }
 
     private void OnEnable()
     {
-        inputs.BoatControls.Enable();
+        inputs.CombinedEngineControls.Enable();
     }
 
     private void OnDisable()
     {
-        inputs.BoatControls.Disable();
+        inputs.CombinedEngineControls.Disable();
     }
 
     void Zoom(InputAction.CallbackContext context)
