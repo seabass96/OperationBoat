@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 410723930}
   - component: {fileID: 410723929}
   m_Layer: 0
-  m_Name: flockSpawnPoint(fish)3 groups stand in one spot
+  m_Name: flockSpawnPoint(fish) sardines
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1249,21 +1249,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fish: {fileID: 5557022597306768178, guid: 761467594c210854b842ec0a77dd3bd9, type: 3}
-  flockSize: 20
-  flockBounds: {x: 10, y: 10, z: 10}
-  flock: []
-  minSpeed: 1
-  MaxSpeed: 2
-  cohesuionDistance: 1
+  flockSize: 40
+  flockBounds: {x: 5, y: 5, z: 5}
+  flock:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minSpeed: 0.5
+  MaxSpeed: 1
+  cohesuionDistance: 0.5
   avoidenceDistance: 1
-  alignmentDistance: 1
+  alignmentDistance: 10
   boundstDistance: 47.1
-  obsticleDistance: 0
   cohesuionWeights: 1
-  avoidenceWeights: 5
-  alignmentWeights: 1
-  boundstWeights: 0
-  obsticleWeights: 0
+  avoidenceWeights: 1
+  alignmentWeights: 10
+  boundstWeights: 1
 --- !u!4 &410723930
 Transform:
   m_ObjectHideFlags: 0
@@ -1995,65 +2033,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
---- !u!1 &582627591
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 582627593}
-  - component: {fileID: 582627592}
-  m_Layer: 0
-  m_Name: flockSpawnPoint(fish)3 groups stand in one spot (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &582627592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582627591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfae2f5f3ba92e549a1e1393890d623b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fish: {fileID: 0}
-  flockSize: 0
-  flockBounds: {x: 0, y: 0, z: 0}
-  flock: []
-  minSpeed: 0
-  MaxSpeed: 0
-  cohesuionDistance: 0
-  avoidenceDistance: 0
-  alignmentDistance: 0
-  boundstDistance: 0
-  obsticleDistance: 0
-  cohesuionWeights: 0
-  avoidenceWeights: 0
-  alignmentWeights: 0
-  boundstWeights: 0
-  obsticleWeights: 0
---- !u!4 &582627593
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582627591}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.64, y: -7.917, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &667678145
 GameObject:
   m_ObjectHideFlags: 3
@@ -7673,7 +7652,7 @@ RectTransform:
   - {fileID: 1332104280}
   - {fileID: 1415976570}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7863,7 +7842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: -1
-  XYAxis: {fileID: -1958871013793635103, guid: abfc3f22c76a60842b5f1d6d854082a8, type: 3}
+  XYAxis: {fileID: 6285720924939687252, guid: abfc3f22c76a60842b5f1d6d854082a8, type: 3}
   ZAxis: {fileID: -8574861075600597260, guid: abfc3f22c76a60842b5f1d6d854082a8, type: 3}
 --- !u!1 &1912078629
 GameObject:
@@ -8258,7 +8237,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064840732}
-  m_LocalRotation: {x: 0.17838447, y: 0.000000008465203, z: -0.0000000015346755, w: 0.98396087}
+  m_LocalRotation: {x: 0.17838447, y: -0.000000008465203, z: 0.0000000015346755, w: 0.98396087}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

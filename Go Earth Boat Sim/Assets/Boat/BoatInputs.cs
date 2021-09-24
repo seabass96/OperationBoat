@@ -1035,14 +1035,14 @@ public class @BoatInputs : IInputActionCollection, IDisposable
             ]
         },
         {
-            ""name"": ""mouse"",
+            ""name"": ""Mouse"",
             ""id"": ""02627140-dc9b-478e-9200-4dc2fd48bb20"",
             ""actions"": [
                 {
-                    ""name"": ""scrollWheel"",
-                    ""type"": ""Value"",
+                    ""name"": ""MouseLook"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""6036e596-1e76-4e6d-99df-bd77fe539e1a"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -1051,11 +1051,11 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""85e39b8e-6f16-40dd-a178-f9516c3f8824"",
-                    ""path"": ""<Mouse>/scroll/y"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""scrollWheel"",
+                    ""action"": ""MouseLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1162,9 +1162,9 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         m_BerthingControls_LeftwaysStop = m_BerthingControls.FindAction("LeftwaysStop", throwIfNotFound: true);
         m_BerthingControls_Rightways = m_BerthingControls.FindAction("Rightways", throwIfNotFound: true);
         m_BerthingControls_RightwaysStop = m_BerthingControls.FindAction("RightwaysStop", throwIfNotFound: true);
-        // mouse
-        m_mouse = asset.FindActionMap("mouse", throwIfNotFound: true);
-        m_mouse_scrollWheel = m_mouse.FindAction("scrollWheel", throwIfNotFound: true);
+        // Mouse
+        m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
+        m_Mouse_MouseLook = m_Mouse.FindAction("MouseLook", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1534,16 +1534,16 @@ public class @BoatInputs : IInputActionCollection, IDisposable
     }
     public BerthingControlsActions @BerthingControls => new BerthingControlsActions(this);
 
-    // mouse
-    private readonly InputActionMap m_mouse;
+    // Mouse
+    private readonly InputActionMap m_Mouse;
     private IMouseActions m_MouseActionsCallbackInterface;
-    private readonly InputAction m_mouse_scrollWheel;
+    private readonly InputAction m_Mouse_MouseLook;
     public struct MouseActions
     {
         private @BoatInputs m_Wrapper;
         public MouseActions(@BoatInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @scrollWheel => m_Wrapper.m_mouse_scrollWheel;
-        public InputActionMap Get() { return m_Wrapper.m_mouse; }
+        public InputAction @MouseLook => m_Wrapper.m_Mouse_MouseLook;
+        public InputActionMap Get() { return m_Wrapper.m_Mouse; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
@@ -1552,20 +1552,20 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_MouseActionsCallbackInterface != null)
             {
-                @scrollWheel.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnScrollWheel;
-                @scrollWheel.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnScrollWheel;
-                @scrollWheel.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnScrollWheel;
+                @MouseLook.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnMouseLook;
+                @MouseLook.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnMouseLook;
+                @MouseLook.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnMouseLook;
             }
             m_Wrapper.m_MouseActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @scrollWheel.started += instance.OnScrollWheel;
-                @scrollWheel.performed += instance.OnScrollWheel;
-                @scrollWheel.canceled += instance.OnScrollWheel;
+                @MouseLook.started += instance.OnMouseLook;
+                @MouseLook.performed += instance.OnMouseLook;
+                @MouseLook.canceled += instance.OnMouseLook;
             }
         }
     }
-    public MouseActions @mouse => new MouseActions(this);
+    public MouseActions @Mouse => new MouseActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1653,6 +1653,6 @@ public class @BoatInputs : IInputActionCollection, IDisposable
     }
     public interface IMouseActions
     {
-        void OnScrollWheel(InputAction.CallbackContext context);
+        void OnMouseLook(InputAction.CallbackContext context);
     }
 }
