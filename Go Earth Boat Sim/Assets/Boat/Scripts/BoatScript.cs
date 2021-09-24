@@ -24,6 +24,7 @@ public class BoatScript : MonoBehaviour
     public float combinedEnginePowerValue = 0f;
     public float leftEnginePowerValue = 0f;
     public float rightEnginePower = 0f;
+    public float rotValue = 0f;
 
     float maxEnginePower = 10f;
     float minEnginePower = -5f;
@@ -33,7 +34,6 @@ public class BoatScript : MonoBehaviour
     float rightRot = 0f;
     float maxRot = 15f;
     float minRot = -15f;
-    float rotValue = 0f;
     float rotChange = 5f;
 
     bool combinedControlsEnabled = true;
