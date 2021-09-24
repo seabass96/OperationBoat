@@ -70,22 +70,6 @@
                     "interactions": "Press(behavior=1)"
                 },
                 {
-                    "name": "ChangeCam",
-                    "type": "Button",
-                    "id": "02506bed-a711-4c73-9c08-c3f997aea0cc",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "CameraZoom",
-                    "type": "Value",
-                    "id": "200bbae1-66a2-433c-94f9-ba084459bbd2",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Stop",
                     "type": "Button",
                     "id": "017bfb89-4e63-42b1-9dc1-34c3631bbdce",
@@ -251,28 +235,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "RotateRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "36be46ff-0e3f-4883-aca8-f327aee526e6",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "CameraZoom",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "78a0820f-5ff0-4fbf-ac15-1d16429aa846",
-                    "path": "<Keyboard>/c",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ChangeCam",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1054,18 +1016,12 @@
         {
             "name": "InduvidualEngineControls",
             "id": "ffcc0f40-3f5c-48a2-8f46-5a2b223f7707",
-            "name": "Mouse",
-            "id": "02627140-dc9b-478e-9200-4dc2fd48bb20",
             "actions": [
                 {
                     "name": "LeftForwards",
                     "type": "Button",
                     "id": "f3e0aefb-4ae2-4608-83fc-a64e95dc2de7",
                     "expectedControlType": "Button",
-                    "name": "MouseLook",
-                    "type": "PassThrough",
-                    "id": "6036e596-1e76-4e6d-99df-bd77fe539e1a",
-                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "Press"
                 },
@@ -1139,13 +1095,10 @@
                     "name": "",
                     "id": "b421b155-b3ec-4e48-aade-99d1bc7e86e6",
                     "path": "<Keyboard>/w",
-                    "id": "85e39b8e-6f16-40dd-a178-f9516c3f8824",
-                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LeftForwards",
-                    "action": "MouseLook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -1234,6 +1187,71 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightBackwards",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Camera",
+            "id": "baf70b7b-f2a1-452e-b849-76ea89c65980",
+            "actions": [
+                {
+                    "name": "Mouse",
+                    "type": "PassThrough",
+                    "id": "71f7ceae-2f74-497f-be53-90d164fe4e16",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ChangeCam",
+                    "type": "Button",
+                    "id": "5779c3d8-2473-48c3-8230-ad9ea94102e8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "CameraZoom",
+                    "type": "Value",
+                    "id": "e94267be-d09e-4f3e-a208-5667f5404f1f",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d2bfe504-8512-436c-9b1c-ad0052470832",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c92273f8-e9dd-4c2f-ac5d-a093f2670712",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ChangeCam",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87738f2a-a254-4131-a82b-524abb492639",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraZoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
