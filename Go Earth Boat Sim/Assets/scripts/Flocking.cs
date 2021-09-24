@@ -31,8 +31,8 @@ public class Flocking : MonoBehaviour
     [Range(0, 100)]
     public float boundstDistance;
 
-    [Range(0, 10)]
-    public float obsticleDistance;
+    //[Range(0, 10)]
+    //public float obsticleDistance;
 
 
     [Header("behaviourWeights")]
@@ -48,8 +48,8 @@ public class Flocking : MonoBehaviour
     [Range(0, 10)]
     public float boundstWeights;
 
-    [Range(0, 10)]
-    public float obsticleWeights;
+    //[Range(0, 10)]
+    //public float obsticleWeights;
 
 
 
