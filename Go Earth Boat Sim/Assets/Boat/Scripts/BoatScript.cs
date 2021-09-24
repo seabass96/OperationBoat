@@ -12,9 +12,19 @@ public class BoatScript : MonoBehaviour
     [SerializeField] Rigidbody boatBody;
     [SerializeField] float Torque;
 
-    float positiveEnginePower = 0f;
-    float negativeEnginePower = 0f;
-    public float enginePowerValue = 0f;
+    float positiveCombinedEnginePower = 0f;
+    float negativeCombinedEnginePower = 0f;
+
+    float positiveLeftEnginePower = 0f;
+    float negativeLeftEnginePower = 0f;
+
+    float positiveRightEnginePower = 0f;
+    float negativeRightEnginePower = 0f;
+
+    public float combinedEnginePowerValue = 0f;
+    public float leftEnginePowerValue = 0f;
+    public float rightEnginePower = 0f;
+
     float maxEnginePower = 10f;
     float minEnginePower = -5f;
     float enginePowerChange = 5f;
@@ -23,15 +33,25 @@ public class BoatScript : MonoBehaviour
     float rightRot = 0f;
     float maxRot = 15f;
     float minRot = -15f;
-    public float rotValue = 0f;
+    float rotValue = 0f;
     float rotChange = 5f;
 
-    bool boatControlsEnabled = true;
+    bool combinedControlsEnabled = true;
     bool berthControlsEnabled = false;
-    bool isIncreasing = false;
-    bool isDecreasing = false;
+    bool induviualControlsEnbaled = false;
+
+    bool combinedPowerIncreasing = false;
+    bool combinedPowerDecreasing = false;
+
+    bool leftPowerIncreasing = false;
+    bool leftPowerDecreasing = false;
+
+    bool rightPowerIncreasing = false;
+    bool rightPowerDecreasing = false;
+
     bool isTurningLeft = false;
     bool isTurningRight = false;
+
     bool isMoving = false;
     bool isStopped = false;
 
@@ -41,16 +61,17 @@ public class BoatScript : MonoBehaviour
     {
         inputs = new BoatInputs();
 
-        inputs.BoatControls.EnginePowerUp.performed += epUp;
-        inputs.BoatControls.EnginePowerUpStop.performed += epUpStop;
-        inputs.BoatControls.EnginePowerDown.performed += epDown;
-        inputs.BoatControls.EnginePowerDownStop.performed += epDownStop;
-        inputs.BoatControls.RotateLeft.performed += rotLeft;
-        inputs.BoatControls.RotateLeftStop.performed += rotLeftStop;
-        inputs.BoatControls.RotateRight.performed += rotRight;
-        inputs.BoatControls.RotateRightStop.performed += rotRightStop;
-        inputs.BoatControls.Handbrake.performed += StopMove;
-        inputs.BoatControls.ChangeControlType.performed += ChangeControls;
+        inputs.CombinedEngineControls.EnginePowerUp.performed += epUp;
+        inputs.CombinedEngineControls.EnginePowerUpStop.performed += epUpStop;
+        inputs.CombinedEngineControls.EnginePowerDown.performed += epDown;
+        inputs.CombinedEngineControls.EnginePowerDownStop.performed += epDownStop;
+        inputs.CombinedEngineControls.RotateLeft.performed += rotLeft;
+        inputs.CombinedEngineControls.RotateLeftStop.performed += rotLeftStop;
+        inputs.CombinedEngineControls.RotateRight.performed += rotRight;
+        inputs.CombinedEngineControls.RotateRightStop.performed += rotRightStop;
+        inputs.CombinedEngineControls.Stop.performed += StopMove;
+        inputs.CombinedEngineControls.ChangeControlType.performed += ChangeControls;
+        inputs.CombinedEngineControls.InduvidualControlsSwitch.performed += ChangeInduvidualControls;
 
         inputs.BerthingControls.Forwards.performed += BerthForwards;
         inputs.BerthingControls.Backwards.performed += BerthBackwards;
@@ -62,37 +83,43 @@ public class BoatScript : MonoBehaviour
         inputs.BerthingControls.RightwaysStop.performed += BerthRightStop;
         inputs.BerthingControls.ChangeControlTypes.performed += ChangeControlsBack;
 
+        inputs.InduvidualEngineControls.CombinedControlsSwitch.performed += ChangeCombinedControls;
+        inputs.InduvidualEngineControls.LeftForwards.performed += leUp;
+        inputs.InduvidualEngineControls.LeftForwardsStop.performed += leUpStop;
+        inputs.InduvidualEngineControls.RightBackwards.performed += reUpStop;
+        inputs.InduvidualEngineControls.RightBackwardsStop.performed += reUpStop;
+
         boatBody = GetComponent<Rigidbody>();
     }
 
     void OnEnable()
     {
-        inputs.BoatControls.Enable();
+        inputs.CombinedEngineControls.Enable();
     }
 
     void OnDisable()
     {
-        inputs.BoatControls.Disable();
+        inputs.CombinedEngineControls.Disable();
     }
 
     void epUp(InputAction.CallbackContext ctx) //epUp = Engine Power Up
     {
-        isIncreasing = true;
+        combinedPowerIncreasing = true;
     }
 
     void epUpStop(InputAction.CallbackContext ctx) // stop increasing engine power
     {
-        isIncreasing = false;
+        combinedPowerIncreasing = false;
     }
 
     void epDown(InputAction.CallbackContext ctx) //epDown = Engine Power Down
     {
-        isDecreasing = true;
+        combinedPowerDecreasing = true;
     }
 
     void epDownStop(InputAction.CallbackContext ctx) // stop decreasing engine power
     {
-        isDecreasing = false;
+        combinedPowerDecreasing = false;
     }
 
     void rotLeft(InputAction.CallbackContext ctx) //rotLeft = Left Rotation
@@ -120,25 +147,102 @@ public class BoatScript : MonoBehaviour
         isStopped = true;
     }
 
+    void reUp(InputAction.CallbackContext ctx) //right enigne power up
+    {
+        rightPowerIncreasing = true;
+    }
+
+    void reUpStop(InputAction.CallbackContext ctx) //right enigne power up stop
+    {
+        rightPowerIncreasing = false;
+    }
+
+    void reDown(InputAction.CallbackContext ctx) //right engine power down
+    {
+        rightPowerDecreasing = true;
+    }
+
+    void reDownStop(InputAction.CallbackContext ctx) //right engine power down stop
+    {
+        rightPowerDecreasing = false;
+    }
+
+    void leUp(InputAction.CallbackContext ctx) //left enigne power up
+    {
+        leftPowerIncreasing = true;
+    }
+
+    void leUpStop(InputAction.CallbackContext ctx) //left enigne power up stop
+    {
+        leftPowerIncreasing = false;
+    }
+
+    void leDown(InputAction.CallbackContext ctx) //left engine power down
+    {
+        leftPowerDecreasing = true;
+    }
+
+    void leDownStop(InputAction.CallbackContext ctx) //left engine power down stop
+    {
+        leftPowerDecreasing = false;
+    }
+
     void ChangeControls(InputAction.CallbackContext ctx) //change controls to berthing controls and disable regulart controls 
     {
         if (!isMoving)
         {
-            inputs.BoatControls.Disable();
+            inputs.CombinedEngineControls.Disable();
             inputs.BerthingControls.Enable();
-            boatControlsEnabled = false;
+            combinedControlsEnabled = false;
             berthControlsEnabled = true;
+        }
+    }
+
+    void ChangeControlsBack(InputAction.CallbackContext ctx) //swap controls back to regular controls and disable berthing controls
+    {
+        if (!isMoving)
+        {
+            inputs.BerthingControls.Disable();
+            inputs.CombinedEngineControls.Enable();
+            combinedControlsEnabled = true;
+            berthControlsEnabled = false;
+        }
+
+    }
+
+    void ChangeInduvidualControls(InputAction.CallbackContext ctx) 
+    {
+        if (!isMoving)
+        {
+            inputs.CombinedEngineControls.Disable();
+            inputs.InduvidualEngineControls.Enable();
+            induviualControlsEnbaled = true;
+            combinedControlsEnabled = false;
+            berthControlsEnabled = false;
+        }
+    }
+
+    void ChangeCombinedControls(InputAction.CallbackContext ctx) 
+    {
+        if (!isMoving)
+        {
+            inputs.CombinedEngineControls.Enable();
+            inputs.InduvidualEngineControls.Disable();
+            induviualControlsEnbaled = false;
+            combinedControlsEnabled = true;
+            berthControlsEnabled = false;
+
         }
     }
 
     void BerthForwards(InputAction.CallbackContext ctx) //move forward with berth controls
     {
-        isIncreasing = true;
+        combinedPowerIncreasing = true;
     }
 
     void BerthBackwards(InputAction.CallbackContext ctx) //move backwards with berth controls
     {
-        isDecreasing = true;
+        combinedPowerIncreasing = true;
     }
 
     void BerthRight(InputAction.CallbackContext ctx) //move right with berth controls
@@ -153,12 +257,12 @@ public class BoatScript : MonoBehaviour
 
     void BerthForwardsStop(InputAction.CallbackContext ctx) //stop moving forwards with berth controls
     {
-        isIncreasing = false;
+        combinedPowerIncreasing = false;
     }
 
     void BerthBackwardsStop(InputAction.CallbackContext ctx) //stop moving backwards with berth controls
     {
-        isDecreasing = false;
+        combinedPowerIncreasing = false;
     }
 
     void BerthRightStop(InputAction.CallbackContext ctx) //stop moving right with berth controls
@@ -171,21 +275,9 @@ public class BoatScript : MonoBehaviour
         isTurningLeft = false;
     }
 
-    void ChangeControlsBack(InputAction.CallbackContext ctx) //swap controls back to regular controls and disable berthing controls
-    {
-        if (!isMoving)
-        {
-            inputs.BerthingControls.Disable();
-            inputs.BoatControls.Enable();
-            boatControlsEnabled = true;
-            berthControlsEnabled = false;
-        }
-
-    }
-
     private void Update()
     {
-        if (boatControlsEnabled)
+        if (combinedControlsEnabled)
         {
             maxEnginePower = 10f;
             minEnginePower = -5f;
@@ -193,7 +285,7 @@ public class BoatScript : MonoBehaviour
             maxRot = 45f;
             minRot = -45f;
             rotChange = 5f;
-            controlType = "Regular controls";
+            controlType = "Regular Controls";
         }
         else if (berthControlsEnabled)
         {
@@ -204,9 +296,18 @@ public class BoatScript : MonoBehaviour
             minRot = -25f;
             rotChange = 1f;
             controlType = "Berthing Controls";
+        } else if(induviualControlsEnbaled)
+        {
+            maxEnginePower = 10f;
+            minEnginePower = -5f;
+            enginePowerChange = 5f;
+            maxRot = 45f;
+            minRot = -45f;
+            rotChange = 5f;
+            controlType = "Induvidual Controls";
         }
 
-        if (enginePowerValue >= 1 || enginePowerValue <= -1)
+        if (combinedEnginePowerValue >= 1 || combinedEnginePowerValue <= -1)
         {
             isMoving = true;
         } else
@@ -214,41 +315,41 @@ public class BoatScript : MonoBehaviour
             isMoving = false;
         }
 
-        if (isIncreasing)
+        if (combinedPowerIncreasing)
         {
-            this.positiveEnginePower += Time.deltaTime * this.enginePowerChange;
+            this.positiveCombinedEnginePower += Time.deltaTime * this.enginePowerChange;
 
-            if (this.positiveEnginePower > maxEnginePower)
+            if (this.positiveCombinedEnginePower > maxEnginePower)
             {
-                positiveEnginePower = maxEnginePower;
-                isIncreasing = false;
+                positiveCombinedEnginePower = maxEnginePower;
+                combinedPowerIncreasing = false;
             }
 
-            if (positiveEnginePower == maxEnginePower && negativeEnginePower < 0)
+            if (positiveCombinedEnginePower == maxEnginePower && negativeCombinedEnginePower < 0)
             {
-                this.negativeEnginePower += Time.deltaTime * this.enginePowerChange;
-                isIncreasing = true;
+                this.negativeCombinedEnginePower += Time.deltaTime * this.enginePowerChange;
+                combinedPowerIncreasing = true;
             }
         }
 
-        if (isDecreasing)
+        if (combinedPowerDecreasing)
         {
-            this.negativeEnginePower -= Time.deltaTime * this.enginePowerChange;
+            this.negativeCombinedEnginePower -= Time.deltaTime * this.enginePowerChange;
 
-            if (this.negativeEnginePower < minEnginePower)
+            if (this.negativeCombinedEnginePower < minEnginePower)
             {
-                negativeEnginePower = minEnginePower;
-                isDecreasing = false;
+                negativeCombinedEnginePower = minEnginePower;
+                combinedPowerDecreasing = false;
             }
 
-            if (negativeEnginePower == minEnginePower && positiveEnginePower > 0)
+            if (negativeCombinedEnginePower == minEnginePower && positiveCombinedEnginePower > 0)
             {
-                this.positiveEnginePower -= Time.deltaTime * this.enginePowerChange;
-                isDecreasing = true;
+                this.positiveCombinedEnginePower -= Time.deltaTime * this.enginePowerChange;
+                combinedPowerDecreasing = true;
             }
         }
 
-        if (isTurningRight && isMoving)
+        /*if (isTurningRight && isMoving)
         {
             this.rightRot += Time.deltaTime * this.rotChange;
 
@@ -280,14 +381,11 @@ public class BoatScript : MonoBehaviour
                 this.rightRot -= Time.deltaTime * this.rotChange;
                 isTurningLeft = true;
             }
-        }
+        }*/
 
-        enginePowerValue = positiveEnginePower + negativeEnginePower;
+        combinedEnginePowerValue = positiveCombinedEnginePower + negativeCombinedEnginePower;
         rotValue = rightRot + leftRot;
 
-        boatBody.AddForce(0, 0, enginePowerValue, ForceMode.Force);
-        boatBody.AddTorque(transform.up * Torque * (rotValue / 100));
-
-        Debug.Log("positive engine power " + positiveEnginePower + " negative engine Power " + negativeEnginePower + " current engine power " + enginePowerValue + " rotating left at " + leftRot + " rotating right at " + rightRot + " for value of " + rotValue + " isMoving= " + isMoving + " control Type = " + controlType);
+        Debug.Log("positive engine power " + positiveCombinedEnginePower + " negative engine Power " + negativeCombinedEnginePower + " current engine power " + combinedEnginePowerValue + " rotating left at " + leftRot + " rotating right at " + rightRot + " for value of " + rotValue + " isMoving= " + isMoving + " control Type = " + controlType);
     }
 }

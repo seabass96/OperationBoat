@@ -15,7 +15,7 @@ public class @BoatInputs : IInputActionCollection, IDisposable
     ""name"": ""BoatInputs"",
     ""maps"": [
         {
-            ""name"": ""BoatControls"",
+            ""name"": ""CombinedEngineControls"",
             ""id"": ""8d5ee7f2-6fd2-4aa4-81a6-72b0283ba304"",
             ""actions"": [
                 {
@@ -99,7 +99,7 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Handbrake"",
+                    ""name"": ""Stop"",
                     ""type"": ""Button"",
                     ""id"": ""017bfb89-4e63-42b1-9dc1-34c3631bbdce"",
                     ""expectedControlType"": ""Button"",
@@ -110,6 +110,14 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                     ""name"": ""ChangeControlType"",
                     ""type"": ""Button"",
                     ""id"": ""e80ea82a-b4bf-404e-b028-55b3e1b338e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""InduvidualControlsSwitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""a24f350d-41c9-450e-baaa-b3d3dc79839f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -145,6 +153,17 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
+                    ""action"": ""EnginePowerUp"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10a68f61-e154-448a-a26b-ffcbb954f150"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
                     ""action"": ""EnginePowerUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -305,17 +324,6 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bebe814b-740a-4efb-98cb-6a6f56d1101a"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""RotateLeftStop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""210a6f45-f3b0-4892-8165-7bd55fecc5cf"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
@@ -332,7 +340,7 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Handbrake"",
+                    ""action"": ""Stop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -344,6 +352,28 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ChangeControlType"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d548f1f5-3b9c-4cf3-bf52-6d1819613579"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateLeftStop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce9b07ac-2a2e-4e2a-bf6b-edefbe0660a0"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InduvidualControlsSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -860,14 +890,6 @@ public class @BoatInputs : IInputActionCollection, IDisposable
             ""id"": ""502cdd64-dbd8-46f1-8dea-8a206372df35"",
             ""actions"": [
                 {
-                    ""name"": ""ChangeControlTypes"",
-                    ""type"": ""Button"",
-                    ""id"": ""68f69d67-a4a1-414e-8845-f1a87d8893b5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Forwards"",
                     ""type"": ""Button"",
                     ""id"": ""67fded94-4abf-47e9-b0f9-cee73aa44a84"",
@@ -930,20 +952,17 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""ChangeControlTypes"",
+                    ""type"": ""Button"",
+                    ""id"": ""5ca6acc5-5ef9-4f69-8399-a1e5b445c12c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""0712bcc3-e384-4cfe-8d3b-776c420c5da9"",
-                    ""path"": ""<Keyboard>/b"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ChangeControlTypes"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""49bc103e-98aa-48c9-adf9-5d7d765be5f5"",
@@ -1031,31 +1050,194 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                     ""action"": ""Rightways"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ede69635-c0e6-40fc-8618-9615d2f43574"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeControlTypes"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""mouse"",
-            ""id"": ""02627140-dc9b-478e-9200-4dc2fd48bb20"",
+            ""name"": ""InduvidualEngineControls"",
+            ""id"": ""ffcc0f40-3f5c-48a2-8f46-5a2b223f7707"",
             ""actions"": [
                 {
-                    ""name"": ""scrollWheel"",
-                    ""type"": ""Value"",
-                    ""id"": ""6036e596-1e76-4e6d-99df-bd77fe539e1a"",
-                    ""expectedControlType"": ""Axis"",
+                    ""name"": ""LeftForwards"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3e0aefb-4ae2-4608-83fc-a64e95dc2de7"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""LeftForwardsStop"",
+                    ""type"": ""Button"",
+                    ""id"": ""2ea503a3-ab10-457a-ad67-f9cd9c1555f3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""LeftBackwards"",
+                    ""type"": ""Button"",
+                    ""id"": ""c778f33d-dde2-4a1f-8044-2325a1ca76e7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""LeftBackwardsStop"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea9a14d7-6529-4bc5-baf9-5f3e2cb5cd09"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""RightForwards"",
+                    ""type"": ""Button"",
+                    ""id"": ""d345575c-59c2-4eda-80c7-9665ba5df4c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""RightForwardsStop"",
+                    ""type"": ""Button"",
+                    ""id"": ""2cebdee6-031a-496a-8be8-00c76892e5d6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""RightBackwards"",
+                    ""type"": ""Button"",
+                    ""id"": ""c1d059cc-b8dd-464b-afe7-3dee5870111b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""RightBackwardsStop"",
+                    ""type"": ""Button"",
+                    ""id"": ""017c5639-b2be-468d-adbb-83756dd77a40"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
+                },
+                {
+                    ""name"": ""CombinedControlsSwitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""4883701c-cc3c-4cc3-b610-9263218bd547"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=1)""
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""85e39b8e-6f16-40dd-a178-f9516c3f8824"",
-                    ""path"": ""<Mouse>/scroll/y"",
+                    ""id"": ""b421b155-b3ec-4e48-aade-99d1bc7e86e6"",
+                    ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""scrollWheel"",
+                    ""action"": ""LeftForwards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff3753d0-c990-4771-8ee7-c80494a608f3"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftForwardsStop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60929a30-bb89-4a7d-a489-847d696c85b6"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftBackwards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""168ae1ef-2cd0-4bc2-bbeb-0f0c0f4e18e0"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftBackwardsStop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1178e19f-a9b4-4183-8a24-07ec3f2ed4d2"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightBackwardsStop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8d3cd40e-ad2c-4652-ae86-4fed081be784"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CombinedControlsSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""deafdf5b-6dad-4aef-9c71-d451ea590ffe"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightForwards"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""408554f2-673e-41c9-9f3d-04ca26b9085f"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightForwardsStop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""727cd145-3bc3-4e34-a2fe-a219997179c3"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightBackwards"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1125,20 +1307,21 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // BoatControls
-        m_BoatControls = asset.FindActionMap("BoatControls", throwIfNotFound: true);
-        m_BoatControls_EnginePowerUp = m_BoatControls.FindAction("EnginePowerUp", throwIfNotFound: true);
-        m_BoatControls_EnginePowerUpStop = m_BoatControls.FindAction("EnginePowerUpStop", throwIfNotFound: true);
-        m_BoatControls_EnginePowerDown = m_BoatControls.FindAction("EnginePowerDown", throwIfNotFound: true);
-        m_BoatControls_EnginePowerDownStop = m_BoatControls.FindAction("EnginePowerDownStop", throwIfNotFound: true);
-        m_BoatControls_RotateLeft = m_BoatControls.FindAction("RotateLeft", throwIfNotFound: true);
-        m_BoatControls_RotateLeftStop = m_BoatControls.FindAction("RotateLeftStop", throwIfNotFound: true);
-        m_BoatControls_RotateRight = m_BoatControls.FindAction("RotateRight", throwIfNotFound: true);
-        m_BoatControls_RotateRightStop = m_BoatControls.FindAction("RotateRightStop", throwIfNotFound: true);
-        m_BoatControls_ChangeCam = m_BoatControls.FindAction("ChangeCam", throwIfNotFound: true);
-        m_BoatControls_CameraZoom = m_BoatControls.FindAction("CameraZoom", throwIfNotFound: true);
-        m_BoatControls_Handbrake = m_BoatControls.FindAction("Handbrake", throwIfNotFound: true);
-        m_BoatControls_ChangeControlType = m_BoatControls.FindAction("ChangeControlType", throwIfNotFound: true);
+        // CombinedEngineControls
+        m_CombinedEngineControls = asset.FindActionMap("CombinedEngineControls", throwIfNotFound: true);
+        m_CombinedEngineControls_EnginePowerUp = m_CombinedEngineControls.FindAction("EnginePowerUp", throwIfNotFound: true);
+        m_CombinedEngineControls_EnginePowerUpStop = m_CombinedEngineControls.FindAction("EnginePowerUpStop", throwIfNotFound: true);
+        m_CombinedEngineControls_EnginePowerDown = m_CombinedEngineControls.FindAction("EnginePowerDown", throwIfNotFound: true);
+        m_CombinedEngineControls_EnginePowerDownStop = m_CombinedEngineControls.FindAction("EnginePowerDownStop", throwIfNotFound: true);
+        m_CombinedEngineControls_RotateLeft = m_CombinedEngineControls.FindAction("RotateLeft", throwIfNotFound: true);
+        m_CombinedEngineControls_RotateLeftStop = m_CombinedEngineControls.FindAction("RotateLeftStop", throwIfNotFound: true);
+        m_CombinedEngineControls_RotateRight = m_CombinedEngineControls.FindAction("RotateRight", throwIfNotFound: true);
+        m_CombinedEngineControls_RotateRightStop = m_CombinedEngineControls.FindAction("RotateRightStop", throwIfNotFound: true);
+        m_CombinedEngineControls_ChangeCam = m_CombinedEngineControls.FindAction("ChangeCam", throwIfNotFound: true);
+        m_CombinedEngineControls_CameraZoom = m_CombinedEngineControls.FindAction("CameraZoom", throwIfNotFound: true);
+        m_CombinedEngineControls_Stop = m_CombinedEngineControls.FindAction("Stop", throwIfNotFound: true);
+        m_CombinedEngineControls_ChangeControlType = m_CombinedEngineControls.FindAction("ChangeControlType", throwIfNotFound: true);
+        m_CombinedEngineControls_InduvidualControlsSwitch = m_CombinedEngineControls.FindAction("InduvidualControlsSwitch", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1153,7 +1336,6 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         // BerthingControls
         m_BerthingControls = asset.FindActionMap("BerthingControls", throwIfNotFound: true);
-        m_BerthingControls_ChangeControlTypes = m_BerthingControls.FindAction("ChangeControlTypes", throwIfNotFound: true);
         m_BerthingControls_Forwards = m_BerthingControls.FindAction("Forwards", throwIfNotFound: true);
         m_BerthingControls_ForwardsStop = m_BerthingControls.FindAction("ForwardsStop", throwIfNotFound: true);
         m_BerthingControls_Backwards = m_BerthingControls.FindAction("Backwards", throwIfNotFound: true);
@@ -1162,9 +1344,18 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         m_BerthingControls_LeftwaysStop = m_BerthingControls.FindAction("LeftwaysStop", throwIfNotFound: true);
         m_BerthingControls_Rightways = m_BerthingControls.FindAction("Rightways", throwIfNotFound: true);
         m_BerthingControls_RightwaysStop = m_BerthingControls.FindAction("RightwaysStop", throwIfNotFound: true);
-        // mouse
-        m_mouse = asset.FindActionMap("mouse", throwIfNotFound: true);
-        m_mouse_scrollWheel = m_mouse.FindAction("scrollWheel", throwIfNotFound: true);
+        m_BerthingControls_ChangeControlTypes = m_BerthingControls.FindAction("ChangeControlTypes", throwIfNotFound: true);
+        // InduvidualEngineControls
+        m_InduvidualEngineControls = asset.FindActionMap("InduvidualEngineControls", throwIfNotFound: true);
+        m_InduvidualEngineControls_LeftForwards = m_InduvidualEngineControls.FindAction("LeftForwards", throwIfNotFound: true);
+        m_InduvidualEngineControls_LeftForwardsStop = m_InduvidualEngineControls.FindAction("LeftForwardsStop", throwIfNotFound: true);
+        m_InduvidualEngineControls_LeftBackwards = m_InduvidualEngineControls.FindAction("LeftBackwards", throwIfNotFound: true);
+        m_InduvidualEngineControls_LeftBackwardsStop = m_InduvidualEngineControls.FindAction("LeftBackwardsStop", throwIfNotFound: true);
+        m_InduvidualEngineControls_RightForwards = m_InduvidualEngineControls.FindAction("RightForwards", throwIfNotFound: true);
+        m_InduvidualEngineControls_RightForwardsStop = m_InduvidualEngineControls.FindAction("RightForwardsStop", throwIfNotFound: true);
+        m_InduvidualEngineControls_RightBackwards = m_InduvidualEngineControls.FindAction("RightBackwards", throwIfNotFound: true);
+        m_InduvidualEngineControls_RightBackwardsStop = m_InduvidualEngineControls.FindAction("RightBackwardsStop", throwIfNotFound: true);
+        m_InduvidualEngineControls_CombinedControlsSwitch = m_InduvidualEngineControls.FindAction("CombinedControlsSwitch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1211,84 +1402,89 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // BoatControls
-    private readonly InputActionMap m_BoatControls;
-    private IBoatControlsActions m_BoatControlsActionsCallbackInterface;
-    private readonly InputAction m_BoatControls_EnginePowerUp;
-    private readonly InputAction m_BoatControls_EnginePowerUpStop;
-    private readonly InputAction m_BoatControls_EnginePowerDown;
-    private readonly InputAction m_BoatControls_EnginePowerDownStop;
-    private readonly InputAction m_BoatControls_RotateLeft;
-    private readonly InputAction m_BoatControls_RotateLeftStop;
-    private readonly InputAction m_BoatControls_RotateRight;
-    private readonly InputAction m_BoatControls_RotateRightStop;
-    private readonly InputAction m_BoatControls_ChangeCam;
-    private readonly InputAction m_BoatControls_CameraZoom;
-    private readonly InputAction m_BoatControls_Handbrake;
-    private readonly InputAction m_BoatControls_ChangeControlType;
-    public struct BoatControlsActions
+    // CombinedEngineControls
+    private readonly InputActionMap m_CombinedEngineControls;
+    private ICombinedEngineControlsActions m_CombinedEngineControlsActionsCallbackInterface;
+    private readonly InputAction m_CombinedEngineControls_EnginePowerUp;
+    private readonly InputAction m_CombinedEngineControls_EnginePowerUpStop;
+    private readonly InputAction m_CombinedEngineControls_EnginePowerDown;
+    private readonly InputAction m_CombinedEngineControls_EnginePowerDownStop;
+    private readonly InputAction m_CombinedEngineControls_RotateLeft;
+    private readonly InputAction m_CombinedEngineControls_RotateLeftStop;
+    private readonly InputAction m_CombinedEngineControls_RotateRight;
+    private readonly InputAction m_CombinedEngineControls_RotateRightStop;
+    private readonly InputAction m_CombinedEngineControls_ChangeCam;
+    private readonly InputAction m_CombinedEngineControls_CameraZoom;
+    private readonly InputAction m_CombinedEngineControls_Stop;
+    private readonly InputAction m_CombinedEngineControls_ChangeControlType;
+    private readonly InputAction m_CombinedEngineControls_InduvidualControlsSwitch;
+    public struct CombinedEngineControlsActions
     {
         private @BoatInputs m_Wrapper;
-        public BoatControlsActions(@BoatInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @EnginePowerUp => m_Wrapper.m_BoatControls_EnginePowerUp;
-        public InputAction @EnginePowerUpStop => m_Wrapper.m_BoatControls_EnginePowerUpStop;
-        public InputAction @EnginePowerDown => m_Wrapper.m_BoatControls_EnginePowerDown;
-        public InputAction @EnginePowerDownStop => m_Wrapper.m_BoatControls_EnginePowerDownStop;
-        public InputAction @RotateLeft => m_Wrapper.m_BoatControls_RotateLeft;
-        public InputAction @RotateLeftStop => m_Wrapper.m_BoatControls_RotateLeftStop;
-        public InputAction @RotateRight => m_Wrapper.m_BoatControls_RotateRight;
-        public InputAction @RotateRightStop => m_Wrapper.m_BoatControls_RotateRightStop;
-        public InputAction @ChangeCam => m_Wrapper.m_BoatControls_ChangeCam;
-        public InputAction @CameraZoom => m_Wrapper.m_BoatControls_CameraZoom;
-        public InputAction @Handbrake => m_Wrapper.m_BoatControls_Handbrake;
-        public InputAction @ChangeControlType => m_Wrapper.m_BoatControls_ChangeControlType;
-        public InputActionMap Get() { return m_Wrapper.m_BoatControls; }
+        public CombinedEngineControlsActions(@BoatInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @EnginePowerUp => m_Wrapper.m_CombinedEngineControls_EnginePowerUp;
+        public InputAction @EnginePowerUpStop => m_Wrapper.m_CombinedEngineControls_EnginePowerUpStop;
+        public InputAction @EnginePowerDown => m_Wrapper.m_CombinedEngineControls_EnginePowerDown;
+        public InputAction @EnginePowerDownStop => m_Wrapper.m_CombinedEngineControls_EnginePowerDownStop;
+        public InputAction @RotateLeft => m_Wrapper.m_CombinedEngineControls_RotateLeft;
+        public InputAction @RotateLeftStop => m_Wrapper.m_CombinedEngineControls_RotateLeftStop;
+        public InputAction @RotateRight => m_Wrapper.m_CombinedEngineControls_RotateRight;
+        public InputAction @RotateRightStop => m_Wrapper.m_CombinedEngineControls_RotateRightStop;
+        public InputAction @ChangeCam => m_Wrapper.m_CombinedEngineControls_ChangeCam;
+        public InputAction @CameraZoom => m_Wrapper.m_CombinedEngineControls_CameraZoom;
+        public InputAction @Stop => m_Wrapper.m_CombinedEngineControls_Stop;
+        public InputAction @ChangeControlType => m_Wrapper.m_CombinedEngineControls_ChangeControlType;
+        public InputAction @InduvidualControlsSwitch => m_Wrapper.m_CombinedEngineControls_InduvidualControlsSwitch;
+        public InputActionMap Get() { return m_Wrapper.m_CombinedEngineControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(BoatControlsActions set) { return set.Get(); }
-        public void SetCallbacks(IBoatControlsActions instance)
+        public static implicit operator InputActionMap(CombinedEngineControlsActions set) { return set.Get(); }
+        public void SetCallbacks(ICombinedEngineControlsActions instance)
         {
-            if (m_Wrapper.m_BoatControlsActionsCallbackInterface != null)
+            if (m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface != null)
             {
-                @EnginePowerUp.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerUp;
-                @EnginePowerUp.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerUp;
-                @EnginePowerUp.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerUp;
-                @EnginePowerUpStop.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerUpStop;
-                @EnginePowerUpStop.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerUpStop;
-                @EnginePowerUpStop.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerUpStop;
-                @EnginePowerDown.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerDown;
-                @EnginePowerDown.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerDown;
-                @EnginePowerDown.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerDown;
-                @EnginePowerDownStop.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerDownStop;
-                @EnginePowerDownStop.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerDownStop;
-                @EnginePowerDownStop.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnEnginePowerDownStop;
-                @RotateLeft.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateLeft;
-                @RotateLeft.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateLeft;
-                @RotateLeft.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateLeft;
-                @RotateLeftStop.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateLeftStop;
-                @RotateLeftStop.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateLeftStop;
-                @RotateLeftStop.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateLeftStop;
-                @RotateRight.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateRight;
-                @RotateRight.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateRight;
-                @RotateRight.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateRight;
-                @RotateRightStop.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateRightStop;
-                @RotateRightStop.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateRightStop;
-                @RotateRightStop.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnRotateRightStop;
-                @ChangeCam.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnChangeCam;
-                @ChangeCam.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnChangeCam;
-                @ChangeCam.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnChangeCam;
-                @CameraZoom.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnCameraZoom;
-                @CameraZoom.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnCameraZoom;
-                @CameraZoom.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnCameraZoom;
-                @Handbrake.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnHandbrake;
-                @Handbrake.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnHandbrake;
-                @Handbrake.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnHandbrake;
-                @ChangeControlType.started -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnChangeControlType;
-                @ChangeControlType.performed -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnChangeControlType;
-                @ChangeControlType.canceled -= m_Wrapper.m_BoatControlsActionsCallbackInterface.OnChangeControlType;
+                @EnginePowerUp.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerUp;
+                @EnginePowerUp.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerUp;
+                @EnginePowerUp.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerUp;
+                @EnginePowerUpStop.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerUpStop;
+                @EnginePowerUpStop.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerUpStop;
+                @EnginePowerUpStop.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerUpStop;
+                @EnginePowerDown.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerDown;
+                @EnginePowerDown.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerDown;
+                @EnginePowerDown.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerDown;
+                @EnginePowerDownStop.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerDownStop;
+                @EnginePowerDownStop.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerDownStop;
+                @EnginePowerDownStop.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnEnginePowerDownStop;
+                @RotateLeft.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateLeft;
+                @RotateLeft.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateLeft;
+                @RotateLeft.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateLeft;
+                @RotateLeftStop.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateLeftStop;
+                @RotateLeftStop.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateLeftStop;
+                @RotateLeftStop.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateLeftStop;
+                @RotateRight.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateRight;
+                @RotateRight.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateRight;
+                @RotateRight.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateRight;
+                @RotateRightStop.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateRightStop;
+                @RotateRightStop.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateRightStop;
+                @RotateRightStop.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnRotateRightStop;
+                @ChangeCam.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnChangeCam;
+                @ChangeCam.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnChangeCam;
+                @ChangeCam.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnChangeCam;
+                @CameraZoom.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnCameraZoom;
+                @CameraZoom.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnCameraZoom;
+                @CameraZoom.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnCameraZoom;
+                @Stop.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnStop;
+                @Stop.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnStop;
+                @Stop.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnStop;
+                @ChangeControlType.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnChangeControlType;
+                @ChangeControlType.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnChangeControlType;
+                @ChangeControlType.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnChangeControlType;
+                @InduvidualControlsSwitch.started -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnInduvidualControlsSwitch;
+                @InduvidualControlsSwitch.performed -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnInduvidualControlsSwitch;
+                @InduvidualControlsSwitch.canceled -= m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface.OnInduvidualControlsSwitch;
             }
-            m_Wrapper.m_BoatControlsActionsCallbackInterface = instance;
+            m_Wrapper.m_CombinedEngineControlsActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @EnginePowerUp.started += instance.OnEnginePowerUp;
@@ -1321,16 +1517,19 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                 @CameraZoom.started += instance.OnCameraZoom;
                 @CameraZoom.performed += instance.OnCameraZoom;
                 @CameraZoom.canceled += instance.OnCameraZoom;
-                @Handbrake.started += instance.OnHandbrake;
-                @Handbrake.performed += instance.OnHandbrake;
-                @Handbrake.canceled += instance.OnHandbrake;
+                @Stop.started += instance.OnStop;
+                @Stop.performed += instance.OnStop;
+                @Stop.canceled += instance.OnStop;
                 @ChangeControlType.started += instance.OnChangeControlType;
                 @ChangeControlType.performed += instance.OnChangeControlType;
                 @ChangeControlType.canceled += instance.OnChangeControlType;
+                @InduvidualControlsSwitch.started += instance.OnInduvidualControlsSwitch;
+                @InduvidualControlsSwitch.performed += instance.OnInduvidualControlsSwitch;
+                @InduvidualControlsSwitch.canceled += instance.OnInduvidualControlsSwitch;
             }
         }
     }
-    public BoatControlsActions @BoatControls => new BoatControlsActions(this);
+    public CombinedEngineControlsActions @CombinedEngineControls => new CombinedEngineControlsActions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -1440,7 +1639,6 @@ public class @BoatInputs : IInputActionCollection, IDisposable
     // BerthingControls
     private readonly InputActionMap m_BerthingControls;
     private IBerthingControlsActions m_BerthingControlsActionsCallbackInterface;
-    private readonly InputAction m_BerthingControls_ChangeControlTypes;
     private readonly InputAction m_BerthingControls_Forwards;
     private readonly InputAction m_BerthingControls_ForwardsStop;
     private readonly InputAction m_BerthingControls_Backwards;
@@ -1449,11 +1647,11 @@ public class @BoatInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_BerthingControls_LeftwaysStop;
     private readonly InputAction m_BerthingControls_Rightways;
     private readonly InputAction m_BerthingControls_RightwaysStop;
+    private readonly InputAction m_BerthingControls_ChangeControlTypes;
     public struct BerthingControlsActions
     {
         private @BoatInputs m_Wrapper;
         public BerthingControlsActions(@BoatInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ChangeControlTypes => m_Wrapper.m_BerthingControls_ChangeControlTypes;
         public InputAction @Forwards => m_Wrapper.m_BerthingControls_Forwards;
         public InputAction @ForwardsStop => m_Wrapper.m_BerthingControls_ForwardsStop;
         public InputAction @Backwards => m_Wrapper.m_BerthingControls_Backwards;
@@ -1462,6 +1660,7 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         public InputAction @LeftwaysStop => m_Wrapper.m_BerthingControls_LeftwaysStop;
         public InputAction @Rightways => m_Wrapper.m_BerthingControls_Rightways;
         public InputAction @RightwaysStop => m_Wrapper.m_BerthingControls_RightwaysStop;
+        public InputAction @ChangeControlTypes => m_Wrapper.m_BerthingControls_ChangeControlTypes;
         public InputActionMap Get() { return m_Wrapper.m_BerthingControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1471,9 +1670,6 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_BerthingControlsActionsCallbackInterface != null)
             {
-                @ChangeControlTypes.started -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnChangeControlTypes;
-                @ChangeControlTypes.performed -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnChangeControlTypes;
-                @ChangeControlTypes.canceled -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnChangeControlTypes;
                 @Forwards.started -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnForwards;
                 @Forwards.performed -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnForwards;
                 @Forwards.canceled -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnForwards;
@@ -1498,13 +1694,13 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                 @RightwaysStop.started -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnRightwaysStop;
                 @RightwaysStop.performed -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnRightwaysStop;
                 @RightwaysStop.canceled -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnRightwaysStop;
+                @ChangeControlTypes.started -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnChangeControlTypes;
+                @ChangeControlTypes.performed -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnChangeControlTypes;
+                @ChangeControlTypes.canceled -= m_Wrapper.m_BerthingControlsActionsCallbackInterface.OnChangeControlTypes;
             }
             m_Wrapper.m_BerthingControlsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @ChangeControlTypes.started += instance.OnChangeControlTypes;
-                @ChangeControlTypes.performed += instance.OnChangeControlTypes;
-                @ChangeControlTypes.canceled += instance.OnChangeControlTypes;
                 @Forwards.started += instance.OnForwards;
                 @Forwards.performed += instance.OnForwards;
                 @Forwards.canceled += instance.OnForwards;
@@ -1529,43 +1725,110 @@ public class @BoatInputs : IInputActionCollection, IDisposable
                 @RightwaysStop.started += instance.OnRightwaysStop;
                 @RightwaysStop.performed += instance.OnRightwaysStop;
                 @RightwaysStop.canceled += instance.OnRightwaysStop;
+                @ChangeControlTypes.started += instance.OnChangeControlTypes;
+                @ChangeControlTypes.performed += instance.OnChangeControlTypes;
+                @ChangeControlTypes.canceled += instance.OnChangeControlTypes;
             }
         }
     }
     public BerthingControlsActions @BerthingControls => new BerthingControlsActions(this);
 
-    // mouse
-    private readonly InputActionMap m_mouse;
-    private IMouseActions m_MouseActionsCallbackInterface;
-    private readonly InputAction m_mouse_scrollWheel;
-    public struct MouseActions
+    // InduvidualEngineControls
+    private readonly InputActionMap m_InduvidualEngineControls;
+    private IInduvidualEngineControlsActions m_InduvidualEngineControlsActionsCallbackInterface;
+    private readonly InputAction m_InduvidualEngineControls_LeftForwards;
+    private readonly InputAction m_InduvidualEngineControls_LeftForwardsStop;
+    private readonly InputAction m_InduvidualEngineControls_LeftBackwards;
+    private readonly InputAction m_InduvidualEngineControls_LeftBackwardsStop;
+    private readonly InputAction m_InduvidualEngineControls_RightForwards;
+    private readonly InputAction m_InduvidualEngineControls_RightForwardsStop;
+    private readonly InputAction m_InduvidualEngineControls_RightBackwards;
+    private readonly InputAction m_InduvidualEngineControls_RightBackwardsStop;
+    private readonly InputAction m_InduvidualEngineControls_CombinedControlsSwitch;
+    public struct InduvidualEngineControlsActions
     {
         private @BoatInputs m_Wrapper;
-        public MouseActions(@BoatInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @scrollWheel => m_Wrapper.m_mouse_scrollWheel;
-        public InputActionMap Get() { return m_Wrapper.m_mouse; }
+        public InduvidualEngineControlsActions(@BoatInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @LeftForwards => m_Wrapper.m_InduvidualEngineControls_LeftForwards;
+        public InputAction @LeftForwardsStop => m_Wrapper.m_InduvidualEngineControls_LeftForwardsStop;
+        public InputAction @LeftBackwards => m_Wrapper.m_InduvidualEngineControls_LeftBackwards;
+        public InputAction @LeftBackwardsStop => m_Wrapper.m_InduvidualEngineControls_LeftBackwardsStop;
+        public InputAction @RightForwards => m_Wrapper.m_InduvidualEngineControls_RightForwards;
+        public InputAction @RightForwardsStop => m_Wrapper.m_InduvidualEngineControls_RightForwardsStop;
+        public InputAction @RightBackwards => m_Wrapper.m_InduvidualEngineControls_RightBackwards;
+        public InputAction @RightBackwardsStop => m_Wrapper.m_InduvidualEngineControls_RightBackwardsStop;
+        public InputAction @CombinedControlsSwitch => m_Wrapper.m_InduvidualEngineControls_CombinedControlsSwitch;
+        public InputActionMap Get() { return m_Wrapper.m_InduvidualEngineControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MouseActions set) { return set.Get(); }
-        public void SetCallbacks(IMouseActions instance)
+        public static implicit operator InputActionMap(InduvidualEngineControlsActions set) { return set.Get(); }
+        public void SetCallbacks(IInduvidualEngineControlsActions instance)
         {
-            if (m_Wrapper.m_MouseActionsCallbackInterface != null)
+            if (m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface != null)
             {
-                @scrollWheel.started -= m_Wrapper.m_MouseActionsCallbackInterface.OnScrollWheel;
-                @scrollWheel.performed -= m_Wrapper.m_MouseActionsCallbackInterface.OnScrollWheel;
-                @scrollWheel.canceled -= m_Wrapper.m_MouseActionsCallbackInterface.OnScrollWheel;
+                @LeftForwards.started -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftForwards;
+                @LeftForwards.performed -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftForwards;
+                @LeftForwards.canceled -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftForwards;
+                @LeftForwardsStop.started -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftForwardsStop;
+                @LeftForwardsStop.performed -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftForwardsStop;
+                @LeftForwardsStop.canceled -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftForwardsStop;
+                @LeftBackwards.started -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftBackwards;
+                @LeftBackwards.performed -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftBackwards;
+                @LeftBackwards.canceled -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftBackwards;
+                @LeftBackwardsStop.started -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftBackwardsStop;
+                @LeftBackwardsStop.performed -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftBackwardsStop;
+                @LeftBackwardsStop.canceled -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnLeftBackwardsStop;
+                @RightForwards.started -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightForwards;
+                @RightForwards.performed -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightForwards;
+                @RightForwards.canceled -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightForwards;
+                @RightForwardsStop.started -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightForwardsStop;
+                @RightForwardsStop.performed -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightForwardsStop;
+                @RightForwardsStop.canceled -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightForwardsStop;
+                @RightBackwards.started -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightBackwards;
+                @RightBackwards.performed -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightBackwards;
+                @RightBackwards.canceled -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightBackwards;
+                @RightBackwardsStop.started -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightBackwardsStop;
+                @RightBackwardsStop.performed -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightBackwardsStop;
+                @RightBackwardsStop.canceled -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnRightBackwardsStop;
+                @CombinedControlsSwitch.started -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnCombinedControlsSwitch;
+                @CombinedControlsSwitch.performed -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnCombinedControlsSwitch;
+                @CombinedControlsSwitch.canceled -= m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface.OnCombinedControlsSwitch;
             }
-            m_Wrapper.m_MouseActionsCallbackInterface = instance;
+            m_Wrapper.m_InduvidualEngineControlsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @scrollWheel.started += instance.OnScrollWheel;
-                @scrollWheel.performed += instance.OnScrollWheel;
-                @scrollWheel.canceled += instance.OnScrollWheel;
+                @LeftForwards.started += instance.OnLeftForwards;
+                @LeftForwards.performed += instance.OnLeftForwards;
+                @LeftForwards.canceled += instance.OnLeftForwards;
+                @LeftForwardsStop.started += instance.OnLeftForwardsStop;
+                @LeftForwardsStop.performed += instance.OnLeftForwardsStop;
+                @LeftForwardsStop.canceled += instance.OnLeftForwardsStop;
+                @LeftBackwards.started += instance.OnLeftBackwards;
+                @LeftBackwards.performed += instance.OnLeftBackwards;
+                @LeftBackwards.canceled += instance.OnLeftBackwards;
+                @LeftBackwardsStop.started += instance.OnLeftBackwardsStop;
+                @LeftBackwardsStop.performed += instance.OnLeftBackwardsStop;
+                @LeftBackwardsStop.canceled += instance.OnLeftBackwardsStop;
+                @RightForwards.started += instance.OnRightForwards;
+                @RightForwards.performed += instance.OnRightForwards;
+                @RightForwards.canceled += instance.OnRightForwards;
+                @RightForwardsStop.started += instance.OnRightForwardsStop;
+                @RightForwardsStop.performed += instance.OnRightForwardsStop;
+                @RightForwardsStop.canceled += instance.OnRightForwardsStop;
+                @RightBackwards.started += instance.OnRightBackwards;
+                @RightBackwards.performed += instance.OnRightBackwards;
+                @RightBackwards.canceled += instance.OnRightBackwards;
+                @RightBackwardsStop.started += instance.OnRightBackwardsStop;
+                @RightBackwardsStop.performed += instance.OnRightBackwardsStop;
+                @RightBackwardsStop.canceled += instance.OnRightBackwardsStop;
+                @CombinedControlsSwitch.started += instance.OnCombinedControlsSwitch;
+                @CombinedControlsSwitch.performed += instance.OnCombinedControlsSwitch;
+                @CombinedControlsSwitch.canceled += instance.OnCombinedControlsSwitch;
             }
         }
     }
-    public MouseActions @mouse => new MouseActions(this);
+    public InduvidualEngineControlsActions @InduvidualEngineControls => new InduvidualEngineControlsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1611,7 +1874,7 @@ public class @BoatInputs : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_XRSchemeIndex];
         }
     }
-    public interface IBoatControlsActions
+    public interface ICombinedEngineControlsActions
     {
         void OnEnginePowerUp(InputAction.CallbackContext context);
         void OnEnginePowerUpStop(InputAction.CallbackContext context);
@@ -1623,8 +1886,9 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         void OnRotateRightStop(InputAction.CallbackContext context);
         void OnChangeCam(InputAction.CallbackContext context);
         void OnCameraZoom(InputAction.CallbackContext context);
-        void OnHandbrake(InputAction.CallbackContext context);
+        void OnStop(InputAction.CallbackContext context);
         void OnChangeControlType(InputAction.CallbackContext context);
+        void OnInduvidualControlsSwitch(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1641,7 +1905,6 @@ public class @BoatInputs : IInputActionCollection, IDisposable
     }
     public interface IBerthingControlsActions
     {
-        void OnChangeControlTypes(InputAction.CallbackContext context);
         void OnForwards(InputAction.CallbackContext context);
         void OnForwardsStop(InputAction.CallbackContext context);
         void OnBackwards(InputAction.CallbackContext context);
@@ -1650,9 +1913,18 @@ public class @BoatInputs : IInputActionCollection, IDisposable
         void OnLeftwaysStop(InputAction.CallbackContext context);
         void OnRightways(InputAction.CallbackContext context);
         void OnRightwaysStop(InputAction.CallbackContext context);
+        void OnChangeControlTypes(InputAction.CallbackContext context);
     }
-    public interface IMouseActions
+    public interface IInduvidualEngineControlsActions
     {
-        void OnScrollWheel(InputAction.CallbackContext context);
+        void OnLeftForwards(InputAction.CallbackContext context);
+        void OnLeftForwardsStop(InputAction.CallbackContext context);
+        void OnLeftBackwards(InputAction.CallbackContext context);
+        void OnLeftBackwardsStop(InputAction.CallbackContext context);
+        void OnRightForwards(InputAction.CallbackContext context);
+        void OnRightForwardsStop(InputAction.CallbackContext context);
+        void OnRightBackwards(InputAction.CallbackContext context);
+        void OnRightBackwardsStop(InputAction.CallbackContext context);
+        void OnCombinedControlsSwitch(InputAction.CallbackContext context);
     }
 }
