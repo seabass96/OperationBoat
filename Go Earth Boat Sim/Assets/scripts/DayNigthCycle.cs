@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class DayNigthCycle : MonoBehaviour
 {
     public GameObject sunCenter;
@@ -20,12 +21,24 @@ public class DayNigthCycle : MonoBehaviour
     public GameObject directionalLigthCenterPoint;
 
     public float timeMultiplier = 1;
+    public bool customTime;
+
+    [Range(0,24)]
+    public int timeOfDay;
+
     private float currentTime;
     private float oldXrot = 0;
 
-    private void FixedUpdate()
-    {     
-        DayNightEffects(InGameTime());
+    private void Update()
+    {
+        if (customTime)
+        {
+            DayNightEffects(SetGameTime());
+        }
+        else
+        {
+            DayNightEffects(InGameTime());
+        }
     }
 
     private float InGameTime()
@@ -33,6 +46,11 @@ public class DayNigthCycle : MonoBehaviour
         currentTime += Time.deltaTime * timeMultiplier;
         currentTime %= 24; //clamp to 24
         return currentTime / 24;
+    }
+
+    private float SetGameTime()
+    {
+        return ((float)timeOfDay / 24.0f);
     }
 
     private void DayNightEffects(float time)
@@ -60,8 +78,7 @@ public class DayNigthCycle : MonoBehaviour
 
         //change ambient light
         RenderSettings.ambientLight = ambient.Evaluate(time);
-
-
     }
+
 
 }

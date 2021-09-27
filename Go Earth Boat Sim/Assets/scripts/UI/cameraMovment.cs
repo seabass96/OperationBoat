@@ -49,13 +49,14 @@ public class cameraMovment : MonoBehaviour
 
                 if (cont > 0)
                 {
+                    if(zoomAmount > -5)
                     zoomAmount -= ZoomeStrength;
                 }
                 else if (cont < 0)
                 {
-                    zoomAmount += ZoomeStrength;
+                    if (zoomAmount < 30)
+                        zoomAmount += ZoomeStrength;
                 }
-                Mathf.Clamp(zoomAmount, 2, 50);
                 break;
 
             case cameraStates.THIRDPERSON:

@@ -9,6 +9,7 @@ public class SettingsMenuButtons : MonoBehaviour
     private Resolution[] res;
     public Dropdown resDropdown;
     public AudioMixer mixer;
+    public Toggle fullscreenToggle;
 
     private void Start()
     {
@@ -33,6 +34,9 @@ public class SettingsMenuButtons : MonoBehaviour
         resDropdown.AddOptions(options);
         resDropdown.value = currentRes;
         resDropdown.RefreshShownValue();
+
+        if (Screen.fullScreen == true) fullscreenToggle.isOn = true;
+
     }
 
     public void Fullscreen(bool isFullScreen)

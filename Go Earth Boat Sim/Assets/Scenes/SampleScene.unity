@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 4, g: 4, b: 4, a: 1}
+  m_AmbientSkyColor: {r: 0.9932134, g: 0.969789, b: 0.9287244, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.20370913, g: 0.31527448, b: 0.49855053, a: 1}
+  m_IndirectSpecularColor: {r: 0.30335787, g: 0.51752543, b: 0.84129155, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -594,6 +594,8 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   directionalLigthCenterPoint: {fileID: 456927013}
   timeMultiplier: 1
+  customTime: 1
+  timeOfDay: 10
 --- !u!4 &64354645
 Transform:
   m_ObjectHideFlags: 0
@@ -1655,7 +1657,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456927013}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.25881955, y: 0, z: 0, w: -0.9659257}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2223,7 +2225,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.81600356, g: 0.81600356, b: 0.81600356, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -5129,6 +5131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resDropdown: {fileID: 1205285824}
   mixer: {fileID: 24100000, guid: e51c0b665d68e4447a04541cd1128338, type: 2}
+  fullscreenToggle: {fileID: 0}
 --- !u!1 &1415976569
 GameObject:
   m_ObjectHideFlags: 0
@@ -7637,7 +7640,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.62
     m_SpeedMode: 0
-    m_MaxSpeed: 2
+    m_MaxSpeed: 1
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -7661,7 +7664,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 150
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
